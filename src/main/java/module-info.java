@@ -14,6 +14,7 @@ module tn.esprit.devmasters {
     opens tn.esprit.devmasters.gui to javafx.fxml;
     exports tn.esprit.devmasters.gui;
 
-//    opens tn.esprit.devmasters.models to javafx.fxml;
-//    exports tn.esprit.devmasters.models;
+    opens tn.esprit.devmasters.models to javafx.fxml;
+    exports tn.esprit.devmasters.models;
+
 }
