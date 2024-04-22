@@ -1,0 +1,56 @@
+.dashboard {
+    -fx-background-color: #f2f3f7;
+}
+
+.sidebar {
+    -fx-background-color: white;
+    -fx-border-color: #dadadb;
+    -fx-border-width: 1px;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 30px 5px;
+}
+
+.addForm {
+    -fx-background-color: white;
+    -fx-border-color: #dadadb;
+    -fx-border-width: 1px;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 30px 10px;
+}
+
+.sidebar-button {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #182122;
+    -fx-padding: 10px 30px;
+}
+
+.sidebar-button-active {
+    -fx-background-color: #182122;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 10px 30px;
+}
+
+.action-button {
+    -fx-background-color: #c5bb2c;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-padding: 5px 20px;
+    -fx-pref-width: 150px;
+}
+
+.error-text {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+}
