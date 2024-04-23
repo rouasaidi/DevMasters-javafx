@@ -24,9 +24,9 @@
                </font>
             </Text>
             <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <VBox alignment="CENTER">
+            <VBox alignment="CENTER" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="sidebar-button-active" text="Categorie">
+                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="148.0" styleClass="sidebar-button-active" text="Categorie">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                            <image>

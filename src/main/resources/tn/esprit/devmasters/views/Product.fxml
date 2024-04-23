@@ -17,15 +17,20 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="dashboard" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.devmasters.gui.ProductController">
    <children>
+
+
       <VBox alignment="CENTER" prefHeight="670.0" prefWidth="200.0" styleClass="sidebar">
+
          <children>
+
+
             <Text fill="#182122" strokeType="OUTSIDE" strokeWidth="0.0" text="JoySpirit">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
             <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <VBox alignment="CENTER">
+            <VBox alignment="CENTER" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#goToCategory" styleClass="sidebar-button" text="Categorie">
                      <graphic>
@@ -36,7 +41,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="sidebar-button-active" text="Produit">
+                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="147.0" styleClass="sidebar-button-active" text="Produit">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                            <image>
@@ -84,6 +89,9 @@
                      <children>
                         <Button mnemonicParsing="false" onAction="#onDelete" style="-fx-background-color: #d74848;" styleClass="action-button" text="Supprimer" />
                         <Button mnemonicParsing="false" onAction="#onEdit" style="-fx-background-color: #c5bb2c;" styleClass="action-button" text="Modifier" />
+               
+                        <Button fx:id="generatePdfButton" mnemonicParsing="false" onAction="#handleGeneratePdfButton" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #00A36C;" styleClass="action-button" text="PDF" />
+                        <Button fx:id="Qrcode" mnemonicParsing="false" onAction="#QRCODE" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #00A36C;" styleClass="action-button" text="QRcode" />
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0" />
@@ -185,4 +193,11 @@
          </children>
       </VBox>
    </children>
+
+
+
+
+
+
+
 </HBox>

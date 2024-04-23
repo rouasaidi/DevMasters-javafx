@@ -1,4 +1,3 @@
-
 module tn.esprit.devmasters {
     requires javafx.controls;
     requires javafx.fxml;
@@ -7,14 +6,19 @@ module tn.esprit.devmasters {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires kernel;
+    requires layout;
 
     opens tn.esprit.devmasters to javafx.fxml;
-    exports tn.esprit.devmasters;
+
 
     opens tn.esprit.devmasters.gui to javafx.fxml;
-    exports tn.esprit.devmasters.gui;
+
 
     opens tn.esprit.devmasters.models to javafx.fxml;
+
+    exports tn.esprit.devmasters.gui;
+    exports tn.esprit.devmasters;
     exports tn.esprit.devmasters.models;
 
 }

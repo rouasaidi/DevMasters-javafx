@@ -27,7 +27,7 @@
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-text-fill: #182122;
-    -fx-padding: 10px 30px;
+    -fx-padding: 10px 0px;
 }
 
 .sidebar-button-active {
@@ -37,7 +37,7 @@
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
-    -fx-padding: 10px 30px;
+    -fx-padding: 10px 0px;
 }
 
 .action-button {
