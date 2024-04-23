@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="185.0" minWidth="306.0" prefHeight="185.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CardController">
+   <children>
+      <VBox alignment="CENTER" minHeight="185.0" minWidth="500.0" prefHeight="185.0" prefWidth="472.0" spacing="15.0">
+         <children>
+            <Label fx:id="name_article" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="900.0" prefWidth="168.0" text="name" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="-50.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="type_article" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="105.0" text="type" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="150.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="desc_article" contentDisplay="CENTER" prefHeight="40.0" prefWidth="105.0" text="desc">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="150.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="pic_article" contentDisplay="CENTER" prefHeight="40.0" prefWidth="105.0" text="pic_article">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="150.0" />
+               </VBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#handleSeeMore" prefHeight="25.0" prefWidth="81.0" text="SEE MORE" textFill="#0f9da3">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="-190.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</HBox>

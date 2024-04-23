@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="mainContainer" alignment="TOP_CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CommentViewController">
+
+    <children>
+        <Label fx:id="articleName" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Article Name" textFill="#5b7fb5" />
+        <Label fx:id="articleDetails" style="-fx-font-size: 14px;" text="Article Details" />
+        <ListView fx:id="commentList" VBox.vgrow="ALWAYS">
+
+        </ListView>
+    </children>
+</VBox>
