@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="500.0" minWidth="800.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherArticleControllerback">
+   <children>
+      <TableView fx:id="tableview" layoutX="58.0" layoutY="97.0" prefHeight="275.0" prefWidth="628.0">
+        <columns>
+          <TableColumn fx:id="nameAr" prefWidth="148.0" text="Nom" />
+            <TableColumn fx:id="typeAr" prefWidth="131.0" text="TYPE" />
+          <TableColumn fx:id="descAr" prefWidth="236.0" text="DESCRIPTION" />
+            <TableColumn fx:id="picAr" minWidth="8.0" prefWidth="112.0" text="Image" />
+        </columns>
+      </TableView>
+      <Label fx:id="welcomeLBL" layoutX="59.0" layoutY="24.0" prefHeight="36.0" prefWidth="657.0" text="JOYSPROUT" textFill="#6782ab">
+         <font>
+            <Font name="Arial Narrow Italic" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="118.0" layoutY="407.0" mnemonicParsing="false" onAction="#navigatetoajouter" style="-fx-background-color: #5b7fb5;" text="Ajouter" />
+      <Button layoutX="244.0" layoutY="407.0" mnemonicParsing="false" onAction="#deleteArticle" style="-fx-background-color: #5b7fb5;" text="Supprimer" />
+      <Button layoutX="380.0" layoutY="407.0" mnemonicParsing="false" onAction="#navigatetoupdate" style="-fx-background-color: #5b7fb5;" text="Modifier" />
+       <Button layoutX="516.0" layoutY="407.0" mnemonicParsing="false" onAction="#viewComments" style="-fx-background-color: #5b7fb5;" text="Afficher Comentaires" />
+
+   </children>
+</AnchorPane>
