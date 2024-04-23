@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import tn.esprit.devmasters.Main;
 import tn.esprit.devmasters.models.Category;
@@ -46,6 +47,8 @@ public class ProductController {
     @FXML
     private Label error_name, error_price, error_qte, error_total, error_description, error_category, error_image;
 
+    @FXML
+    private GridPane products_grid;
 
     public void initialize() {
         try {
@@ -53,7 +56,6 @@ public class ProductController {
             for (Category category : categories) {
                 select_category.getItems().add(category.getId());
             }
-
             loadProducts();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

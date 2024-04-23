@@ -1,4 +1,3 @@
-
 module tn.esprit.devmasters {
     requires javafx.controls;
     requires javafx.fxml;

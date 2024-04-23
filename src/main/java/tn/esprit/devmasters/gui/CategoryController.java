@@ -118,7 +118,6 @@ public class CategoryController {
     }
 
     public void updateCategory() {
-        System.out.println(selectedCategory.getId());
         Category category = new Category(selectedCategory.getId(), input_type.getText(), input_image.getText(), 1);
         try {
             categoryService.update(category);
