@@ -120,5 +120,16 @@ quantitecol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
 
     }
+    @FXML
+    void navigatelistticket(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Scene scene = source.getScene();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/tn/esprit/azizapplicationgui/showbackTicket.fxml"));
+        try {
+            scene.setRoot(fxmlLoader.load());
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 
 }

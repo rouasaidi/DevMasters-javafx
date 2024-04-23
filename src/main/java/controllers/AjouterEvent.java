@@ -159,6 +159,9 @@ t=1;
         e.setDate_event(sqlDate);
 
         try {
+            e.setNb_standard(0);
+            e.setNb_vip(0);
+            e.setQyantity_left(e.getQuantity());
             eventservice.ajouter(e);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Success");
@@ -196,6 +199,16 @@ t=1;
     @FXML
     void navigatesearch(ActionEvent event) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/tn/esprit/azizapplicationgui/search.fxml"));
+        try {
+            lieucc.getScene().setRoot(fxmlLoader.load());
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    @FXML
+    void navigatetotickets(ActionEvent event) {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/tn/esprit/azizapplicationgui/showbackTicket.fxml"));
         try {
             lieucc.getScene().setRoot(fxmlLoader.load());
         } catch (IOException e) {

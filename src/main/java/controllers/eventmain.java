@@ -20,10 +20,10 @@ public class eventmain {
 
         // Create some sample Event objects
         ObservableList<Event> eventList = FXCollections.observableArrayList(
-                new Event(1, 10, "Event 1", "Location 1", "Description 1", "image1.jpg", 100.0, new Date(Calendar.getInstance().getTimeInMillis())),
+                /*new Event(1, 10, "Event 1", "Location 1", "Description 1", "image1.jpg", 100.0, new Date(Calendar.getInstance().getTimeInMillis())),
                 new Event(2, 20, "Event 2", "Location 2", "Description 2", "image2.jpg", 200.0, new Date(Calendar.getInstance().getTimeInMillis())),
                 new Event(3, 30, "Event 3", "Location 3", "Description 3", "image3.jpg", 300.0, new Date(Calendar.getInstance().getTimeInMillis()))
-                // Add more Event objects as needed
+                // Add more Event objects as needed*/
         );
 
         // Populate the ListView with the sample Event objects
