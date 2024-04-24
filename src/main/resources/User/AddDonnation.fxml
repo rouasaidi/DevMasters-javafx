@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.leila.Controller.User.AddDonationController">
+    <children>
+        <Label layoutX="102.0" layoutY="83.0" prefHeight="18.0" prefWidth="113.0" text="Name* :" />
+        <Label layoutX="102.0" layoutY="207.0" prefHeight="18.0" prefWidth="78.0" text="Descreption* :" />
+        <Label layoutX="631.0" layoutY="83.0" prefHeight="18.0" prefWidth="52.0" text="Image* :" />
+        <TextField fx:id="nameF" layoutX="191.0" layoutY="80.0" prefHeight="26.0" prefWidth="386.0" />
+        <TextArea fx:id="descreptionF" layoutX="191.0" layoutY="216.0" prefHeight="162.0" prefWidth="386.0" />
+        <Button layoutX="773.0" layoutY="80.0" mnemonicParsing="false" onAction="#addImage" prefHeight="26.0" prefWidth="183.0" text="Select" />
+        <ImageView fx:id="imageview" fitHeight="308.0" fitWidth="372.0" layoutX="770.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+        <Button layoutX="882.0" layoutY="583.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="26.0" prefWidth="164.0" text="Save" />
+        <Label fx:id="checkname" layoutX="202.0" layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="366.0" text="*Insert a valid name" textFill="RED" visible="false" />
+        <Label fx:id="checkCategorie" layoutX="200.0" layoutY="177.0" prefHeight="18.0" prefWidth="366.0" text="*Select Category" textFill="RED" visible="false" />
+        <Label fx:id="checkquantity" layoutX="202.0" layoutY="470.0" prefHeight="18.0" prefWidth="366.0" text="*Insert quantity" textFill="RED" visible="false" />
+      <Label layoutX="102.0" layoutY="149.0" prefHeight="18.0" prefWidth="65.0" text="Category* :" />
+      <Label layoutX="102.0" layoutY="433.0" text="Quantity* :" />
+      <Spinner fx:id="quantity" editable="true" layoutX="190.0" layoutY="438.0" prefWidth="386.0" />
+      <Button layoutX="600.0" layoutY="583.0" mnemonicParsing="false" onAction="#goDonation" prefHeight="26.0" prefWidth="183.0" text="Cancel" />
+      <Label fx:id="checkdescreption" layoutX="202.0" layoutY="388.0" prefHeight="18.0" prefWidth="366.0" text="*Insert a quaote" textFill="RED" visible="false" />
+      <Label fx:id="checkimage" layoutX="648.0" layoutY="115.0" prefHeight="18.0" prefWidth="366.0" text="*Select Image" textFill="RED" visible="false" />
+      <ComboBox fx:id="categoryCamcox" layoutX="190.0" layoutY="146.0" prefHeight="26.0" prefWidth="386.0" promptText="Select Category" />
+    </children>
+</AnchorPane>
