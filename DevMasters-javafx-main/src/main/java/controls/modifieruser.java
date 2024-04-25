@@ -4,6 +4,7 @@ import entites.user;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -67,85 +68,97 @@ private int ID;
 
     @FXML
     void modifieruser(ActionEvent event) {
-            try {
-                // Récupérer les valeurs des champs de texte
-                int id = Integer.parseInt(iduser.getText());
-                String email = usereamiltextfiled.getText();
-                String name = usernametextfiled.getText();
-                int phone = Integer.parseInt(userphonetextfiled.getText());
-                int cin = Integer.parseInt(usercintextfiled.getText());
-                String image = userimagetextfiled.getText();
-                String roles = userrolesextfiled.getText();
-                String password = userpasswordtextfiled.getText();
+                try {
+                    // Récupérer les valeurs des champs de texte
+                    int id = Integer.parseInt(iduser.getText());
+                    String email = usereamiltextfiled.getText();
+                    String name = usernametextfiled.getText();
+                    int phone = Integer.parseInt(userphonetextfiled.getText());
+                    int cin = Integer.parseInt(usercintextfiled.getText());
+                    String image = userimagetextfiled.getText();
+                    String roles = userrolesextfiled.getText();
+                    String password = userpasswordtextfiled.getText();
 
-                // Valider les données saisies
+                    // Valider les données saisies
 
-                // Vérification si les champs ne sont pas vides
-                if (email.isEmpty() || name.isEmpty() || image.isEmpty() || roles.isEmpty() || password.isEmpty()) {
+                    // Vérification si les champs ne sont pas vides
+                    if (email.isEmpty() || name.isEmpty() || image.isEmpty() || roles.isEmpty() || password.isEmpty()) {
+                        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                        errorAlert.setTitle("Error");
+                        errorAlert.setHeaderText(null);
+                        errorAlert.setContentText("Veuillez remplir tous les champs.");
+                        errorAlert.showAndWait();
+                        return; // Arrêter l'exécution de la méthode si des champs sont vides
+                    }
+                    // Validation de l'adresse e-mail
+
+                    if (!email.matches("^[a-zA-Z0-9._%+-]+@(?:esprit\\.tn|gmail\\.com)$")) {
+                        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                        errorAlert.setTitle("Error");
+                        errorAlert.setHeaderText(null);
+                        errorAlert.setContentText("Please enter a valid email address (example@esprit.tn or example@gmail.com).");
+                        errorAlert.showAndWait();
+                        return; // Arrêter l'exécution de la méthode si l'adresse e-mail est invalide
+                    }
+
+                    if (userpasswordtextfiled.getText().length() < 8) {
+                        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                        errorAlert.setTitle("Error");
+                        errorAlert.setHeaderText(null);
+                        errorAlert.setContentText("Password must be at least 8 characters long.");
+                        errorAlert.showAndWait();
+                        return; // Arrêter l'exécution de la méthode si le mot de passe est trop court
+                    }
+
+                    // Validation du numéro de téléphone et du numéro de CIN
+                    String phoneNumber = userphonetextfiled.getText();
+                    String cinNumber = usercintextfiled.getText();
+                    if (phoneNumber.length() != 8 || cinNumber.length() != 8 || !phoneNumber.matches("[0-9]+") || !cinNumber.matches("[0-9]+") || phoneNumber.startsWith("+") || phoneNumber.startsWith("-") || phoneNumber.startsWith("/") || phoneNumber.startsWith("*")) {
+                        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                        errorAlert.setTitle("Error");
+                        errorAlert.setHeaderText(null);
+                        errorAlert.setContentText("Please enter a valid 8-digit phone number that does not start with +, -, /, or *.");
+                        errorAlert.showAndWait();
+                        return; // Arrêter l'exécution de la méthode si les numéros de téléphone ou de CIN sont invalides
+                    }
+
+                    // Appeler la méthode pour modifier l'utilisateur
+                    user modifiedUser = new user(name, email, cin, phone, roles, image, password);
+                    modifiedUser.setId(id);
+
+                    ps.modifieruser(modifiedUser);
+                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                    errorAlert.setTitle("SUCESSCE");
+                    errorAlert.setHeaderText(null);
+                    errorAlert.setContentText("Utilisateur modifié avec succès.");
+                    errorAlert.showAndWait();
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.close();
+
+                    // Ouvrir la nouvelle fenêtre d'affichage des utilisateurs
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/afficheruser.fxml"));
+                    Parent root = loader.load();
+                    Scene scene = new Scene(root);
+                    Stage newStage = new Stage();
+                    newStage.setScene(scene);
+                    newStage.show();
+                } catch (NumberFormatException e) {
                     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                     errorAlert.setTitle("Error");
                     errorAlert.setHeaderText(null);
-                    errorAlert.setContentText("Veuillez remplir tous les champs.");
+                    errorAlert.setContentText("Veuillez saisir des valeurs numériques valides pour le téléphone et le CIN");
                     errorAlert.showAndWait();
-                    return; // Arrêter l'exécution de la méthode si des champs sont vides
+                } catch (SQLException e) {
+
+
+                    Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                    successAlert.setTitle("Error");
+                    successAlert.setHeaderText(null);
+                    successAlert.setContentText("Erreur lors de la modification de l'utilisateur : " + e.getMessage());
+                    successAlert.showAndWait();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
-                // Validation de l'adresse e-mail
-
-                if (!email.matches("^[a-zA-Z0-9._%+-]+@(?:esprit\\.tn|gmail\\.com)$")) {
-                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                    errorAlert.setTitle("Error");
-                    errorAlert.setHeaderText(null);
-                    errorAlert.setContentText("Please enter a valid email address (example@esprit.tn or example@gmail.com).");
-                    errorAlert.showAndWait();
-                    return; // Arrêter l'exécution de la méthode si l'adresse e-mail est invalide
-                }
-
-                if (userpasswordtextfiled.getText().length() < 8) {
-                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                    errorAlert.setTitle("Error");
-                    errorAlert.setHeaderText(null);
-                    errorAlert.setContentText("Password must be at least 8 characters long.");
-                    errorAlert.showAndWait();
-                    return; // Arrêter l'exécution de la méthode si le mot de passe est trop court
-                }
-
-                // Validation du numéro de téléphone et du numéro de CIN
-                String phoneNumber = userphonetextfiled.getText();
-                String cinNumber = usercintextfiled.getText();
-                if (phoneNumber.length() != 8 || cinNumber.length() != 8 || !phoneNumber.matches("[0-9]+") || !cinNumber.matches("[0-9]+") || phoneNumber.startsWith("+") || phoneNumber.startsWith("-") || phoneNumber.startsWith("/") || phoneNumber.startsWith("*")) {
-                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                    errorAlert.setTitle("Error");
-                    errorAlert.setHeaderText(null);
-                    errorAlert.setContentText("Please enter a valid 8-digit phone number that does not start with +, -, /, or *.");
-                    errorAlert.showAndWait();
-                    return; // Arrêter l'exécution de la méthode si les numéros de téléphone ou de CIN sont invalides
-                }
-
-                // Appeler la méthode pour modifier l'utilisateur
-                user modifiedUser = new user(name, email, cin, phone, roles, image, password);
-                modifiedUser.setId(id);
-
-                ps.modifieruser(modifiedUser);
-                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                errorAlert.setTitle("SUCESSCE");
-                errorAlert.setHeaderText(null);
-                errorAlert.setContentText("Utilisateur modifié avec succès.");
-                errorAlert.showAndWait();
-            } catch (NumberFormatException e) {
-                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                errorAlert.setTitle("Error");
-                errorAlert.setHeaderText(null);
-                errorAlert.setContentText("Veuillez saisir des valeurs numériques valides pour le téléphone et le CIN");
-                errorAlert.showAndWait();
-            } catch (SQLException e) {
-
-
-                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                successAlert.setTitle("Error");
-                successAlert.setHeaderText(null);
-                successAlert.setContentText("Erreur lors de la modification de l'utilisateur : " + e.getMessage());
-                successAlert.showAndWait();
-            }
     }
 
     @FXML

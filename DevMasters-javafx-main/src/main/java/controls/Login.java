@@ -111,6 +111,7 @@ public class Login {
 
             Stage stage = (Stage) usereamiltextfiled.getScene().getWindow();
             stage.setScene(new Scene(root));
+
             // Authentification réussie
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
             successAlert.setTitle("Login Successful");

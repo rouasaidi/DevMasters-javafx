@@ -21,6 +21,8 @@ public class ajouterusercontrol {
     private Button ok;
     @FXML
     private Button back;
+    @FXML
+    private Button logout;
 
     @FXML
     private TextField usercintextfiled;

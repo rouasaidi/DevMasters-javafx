@@ -36,7 +36,7 @@ public class afficheruser {
     private TableColumn<user, String> Reset_token;
 
     @FXML
-    private AnchorPane Ap_afficher;
+    private AnchorPane tableauafficher;
 
 
     @FXML
@@ -147,9 +147,15 @@ public class afficheruser {
         TableView.TableViewSelectionModel<user> selectionModel = tableview.getSelectionModel();
         if (selectionModel.isEmpty()) {
             System.out.println("Vous devez sélectionner des éléments avant de les supprimer.");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Aucune sélection");
+            alert.setHeaderText(null);
+            alert.setContentText("Vous devez sélectionner des éléments avant de les modifier.");
+            alert.showAndWait();
             return;
         }
         try {
+
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/modifier.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -158,7 +164,8 @@ public class afficheruser {
             // Utilisez l'ID ou tout autre attribut de votre objet utilisateur pour passer les données au contrôleur
             updateuser.setID(selectedUser.getId(), selectedUser.getEmail(), selectedUser.getName(), selectedUser.getPhone(), selectedUser.getCin(), selectedUser.getImage(), selectedUser.getRoles(), selectedUser.getPassword());
             System.out.println(selectedUser.getId());
-
+            Stage stageAfficherUser = (Stage) tableauafficher.getScene().getWindow();
+            stageAfficherUser.close();
           /*  modifieruser updateuser=fxmlLoader.getController();
             updateuser.setID(selectionModel[0].getRefund_id());*/
 

@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Ap_afficher" prefHeight="682.0" prefWidth="1062.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.afficheruser">
+<AnchorPane fx:id="tableauafficher" prefHeight="400.0" prefWidth="600.0" stylesheets="login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.afficheruser">
+
    <children>
       <TableView fx:id="tableview" layoutX="66.0" layoutY="73.0" prefHeight="537.0" prefWidth="996.0">
         <columns>
@@ -22,8 +23,14 @@
             <TableColumn fx:id="password" prefWidth="205.0" text="password" />
         </columns>
       </TableView>
-      <Button fx:id="modifier" layoutX="759.0" layoutY="643.0" mnemonicParsing="false" onAction="#naviguer" text="modifier" />
-      <Button fx:id="supprimer" layoutX="884.0" layoutY="649.0" mnemonicParsing="false" onAction="#supprimer" text="supprimer" />
+      <Button fx:id="modifier" layoutX="312.0" layoutY="637.0" mnemonicParsing="false" onAction="#naviguer" prefHeight="25.0" prefWidth="252.0" text="modifier">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="supprimer" layoutX="609.0" layoutY="637.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="252.0" text="supprimer">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font></Button>
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="back">
          <font>
             <Font name="System Bold" size="14.0" />

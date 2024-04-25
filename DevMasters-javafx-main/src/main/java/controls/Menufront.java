@@ -17,11 +17,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Menufront {
 
     @FXML
     private Button profil;
+    @FXML
+    private Button logout;
 
     @FXML
     private Button singin;
@@ -46,7 +49,8 @@ public class Menufront {
             String email = "";
             String password="";
 
-            userInfoController.initData(name, email,password, cin, phone, roles, image);
+            // Appeler la méthode initData sur le contrôleur de l'interface UserInfo
+            userInfoController.initData(name, email, password, cin, phone, roles, image);
 
             // Afficher l'interface UserInfo dans une nouvelle fenêtre ou un nouveau volet
             Stage userInfoStage = new Stage();
@@ -56,6 +60,7 @@ public class Menufront {
             e.printStackTrace();
         }
     }
+
 
 
 
@@ -104,5 +109,20 @@ public class Menufront {
         return user;
     }
 */
+
+
+    @FXML
+    void logout(ActionEvent event) throws IOException {
+        // Fermer la fenêtre du menu
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.close();
+        // Afficher à nouveau l'écran de connexion
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/login.fxml"));
+        Parent loginRoot = loginLoader.load();
+        Stage loginStage = new Stage();
+        loginStage.setScene(new Scene(loginRoot));
+        loginStage.show();
+
+    }
 }
 

@@ -8,7 +8,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="850.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.Menu">
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.Menu" stylesheets="login.css">
    <children>
       <VBox prefHeight="45.0" prefWidth="250.0">
          <children>
@@ -19,16 +20,16 @@
             </ImageView>
             <Button fx:id="addmenu" mnemonicParsing="false" onAction="#addmenu" text="add user">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Georgia Bold" size="18.0" />
                </font>
             </Button>
          </children>
       </VBox>
       <VBox layoutY="73.0" prefHeight="45.0" prefWidth="250.0">
          <children>
-            <Button fx:id="affichermenu" mnemonicParsing="false" onAction="#affichermenu" text="List user">
+            <Button fx:id="affichermenu" mnemonicParsing="false" onAction="#affichermenu" prefHeight="30.0" prefWidth="106.0" text="List user">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Georgia Bold" size="18.0" />
                </font>
             </Button>
          </children>
@@ -47,5 +48,10 @@
             </Label>
          </children>
       </VBox>
+      <Button fx:id="logout" layoutX="1193.0" layoutY="32.0" mnemonicParsing="false" onAction="#logout" text="LOGOUT" textFill="#252323">
+         <font>
+            <Font name="Georgia Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -3,37 +3,31 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.modifieruser">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.modifieruser" stylesheets="login.css">
     <right>
-        <AnchorPane prefHeight="440.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="400.0" prefWidth="371.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="53.0" fitWidth="57.0" layoutX="140.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../../images.png" />
-                    </image>
-                </ImageView>
-                <TextField fx:id="usereamiltextfiled" layoutX="99.0" layoutY="88.0" promptText="usereamil" />
-                <Label layoutX="26.0" layoutY="92.0" text="eamil" />
-                <Label layoutX="26.0" layoutY="113.0" text="name" />
-                <Label layoutX="15.0" layoutY="139.0" text="phone" />
-                <Label layoutX="18.0" layoutY="164.0" text="cin" />
-                <TextField fx:id="usernametextfiled" layoutX="92.0" layoutY="109.0" promptText="username" />
-                <TextField fx:id="userphonetextfiled" layoutX="92.0" layoutY="135.0" promptText="userphone" />
-                <TextField fx:id="usercintextfiled" layoutX="92.0" layoutY="160.0" promptText="usercin" />
-                <Label layoutX="29.0" layoutY="192.0" text="image" />
-                <Label layoutX="21.0" layoutY="246.0" text="roles" />
-                <Label layoutX="32.0" layoutY="281.0" text="password" />
-                <TextField fx:id="userimagetextfiled" layoutX="92.0" layoutY="188.0" promptText="userimage" />
-                <TextField fx:id="userrolesextfiled" layoutX="117.0" layoutY="242.0" promptText="userroles" />
-                <TextField fx:id="userpasswordtextfiled" layoutX="117.0" layoutY="277.0" promptText="password" />
-                <Button fx:id="ok" layoutX="27.0" layoutY="331.0" mnemonicParsing="false" onAction="#modifieruser" prefHeight="25.0" prefWidth="310.0" text="ok" />
+                <TextField fx:id="usereamiltextfiled" layoutX="25.0" layoutY="80.0" prefHeight="25.0" prefWidth="153.0" promptText="usereamil" />
+                <TextField fx:id="usernametextfiled" layoutX="27.0" layoutY="118.0" promptText="username" />
+                <TextField fx:id="userphonetextfiled" layoutX="27.0" layoutY="156.0" promptText="userphone" />
+                <TextField fx:id="usercintextfiled" layoutX="27.0" layoutY="188.0" promptText="usercin" />
+                <TextField fx:id="userimagetextfiled" layoutX="27.0" layoutY="220.0" promptText="userimage" />
+                <TextField fx:id="userrolesextfiled" layoutX="27.0" layoutY="259.0" promptText="userroles" />
+                <TextField fx:id="userpasswordtextfiled" layoutX="27.0" layoutY="294.0" promptText="password" />
+                <Button fx:id="ok" layoutY="340.0" mnemonicParsing="false" onAction="#modifieruser" prefHeight="25.0" prefWidth="310.0" text="UPATE">
+               <font>
+                  <Font name="Georgia Bold" size="14.0" />
+               </font></Button>
             <TextField fx:id="iduser" layoutX="94.0" layoutY="55.0" visible="false" />
+            <Label layoutX="7.0" layoutY="14.0" prefHeight="17.0" prefWidth="175.0" text="UPDATE ">
+               <font>
+                  <Font name="Georgia Bold" size="36.0" />
+               </font>
+            </Label>
 
             </children>
         </AnchorPane>
@@ -46,6 +40,13 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
+                <Label layoutX="113.0" layoutY="89.0" text="eamil" />
+                <Label layoutX="110.0" layoutY="121.0" text="name" />
+                <Label layoutX="112.0" layoutY="154.0" text="phone" />
+                <Label layoutX="118.0" layoutY="187.0" text="cin" />
+                <Label layoutX="119.0" layoutY="213.0" text="image" />
+                <Label layoutX="127.0" layoutY="258.0" text="roles" />
+                <Label layoutX="121.0" layoutY="300.0" text="password" />
             </children>
         </AnchorPane>
     </center>

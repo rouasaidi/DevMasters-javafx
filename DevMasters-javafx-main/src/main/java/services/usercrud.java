@@ -170,6 +170,9 @@ public  class usercrud  implements userservice<user> {
 
 
     public boolean isValidLogin(String email, String password) {
+        ArrayList<String> userList = new ArrayList<>();
+        userList.add(email);
+        userList.add(password);
         String query = "SELECT * FROM user WHERE email = ? AND password = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, email);
@@ -203,5 +206,23 @@ public  class usercrud  implements userservice<user> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void deletefront(user users) throws SQLException {
+        String query = "DELETE FROM user WHERE email = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, users.getEmail());
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Utilisateur supprimé avec succès.");
+            } else {
+                System.out.println("Aucun utilisateur n'a été supprimé. ID d'utilisateur non valide.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la suppression de l'utilisateur : " + e.getMessage());
+            throw e;
+        }
+
     }
 }

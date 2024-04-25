@@ -14,5 +14,6 @@ public interface userservice<T>{
     public boolean isValidLogin(String email, String password);
    // public user recupererInfosUtilisateur(String email);
    public void updatefront(user user);
+    public void deletefront(user users) throws SQLException;
 
 }

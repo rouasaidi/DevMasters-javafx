@@ -98,6 +98,15 @@ public class Signin {
             successAlert.setHeaderText(null);
             successAlert.setContentText("User added successfully!");
             successAlert.showAndWait();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Fermez la scène actuelle (scène d'inscription)
+            Stage currentStage = (Stage) usernametextfiled.getScene().getWindow();
+            currentStage.close();
         } catch (SQLException e) {
             // Afficher une alerte d'erreur si une exception SQL est levée
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
@@ -105,6 +114,8 @@ public class Signin {
             errorAlert.setHeaderText(null);
             errorAlert.setContentText("Failed to add user. SQLException: " + e.getMessage());
             errorAlert.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

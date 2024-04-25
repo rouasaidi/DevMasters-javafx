@@ -3,15 +3,46 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.Login">
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.Login" stylesheets="login.css">
+   <!-- Vos autres éléments ici -->
+
+
    <children>
-      <TextField fx:id="usereamiltextfiled" layoutX="219.0" layoutY="105.0" promptText="usereamil" />
-      <TextField fx:id="userpasswordtextfiled" layoutX="219.0" layoutY="165.0" promptText="password" />
-      <Label layoutX="165.0" layoutY="109.0" text="eamil" />
-      <Label layoutX="154.0" layoutY="169.0" text="password" />
-      <Button fx:id="login" layoutX="219.0" layoutY="228.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="136.0" text="login" />
-      <Button fx:id="inscrit" layoutX="217.0" layoutY="279.0" mnemonicParsing="false" onAction="#inscrit" prefHeight="25.0" prefWidth="136.0" text="Sing up " />
+      <Button fx:id="inscrit" layoutX="139.0" layoutY="349.0" mnemonicParsing="false" onAction="#inscrit" prefHeight="30.0" prefWidth="343.0" text="SING UP">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Label contentDisplay="TOP" layoutX="33.0" layoutY="14.0" prefHeight="108.0" prefWidth="451.0" text="              USER  LOGIN" textAlignment="JUSTIFY" textFill="#000000f3" textOverrun="LEADING_ELLIPSIS" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Georgia Bold" size="48.0" />
+         </font>
+      </Label>
+      <Button fx:id="login" layoutX="141.0" layoutY="308.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="343.0" text="LOGIN">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <TextField fx:id="usereamiltextfiled" layoutX="138.0" layoutY="159.0" prefHeight="34.0" prefWidth="343.0" promptText="usereamil" AnchorPane.bottomAnchor="207.0" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="119.0" AnchorPane.topAnchor="159.0" />
+      <TextField fx:id="userpasswordtextfiled" layoutX="140.0" layoutY="224.0" prefHeight="34.0" prefWidth="343.0" promptText="password" AnchorPane.bottomAnchor="133.0" />
+      <ImageView fitHeight="89.0" fitWidth="80.0" layoutX="12.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@a1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="65.0" layoutX="57.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@b.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="66.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@c.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
