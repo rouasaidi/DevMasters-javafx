@@ -6,13 +6,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import javafx.scene.chart.PieChart;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import tn.esprit.devmasters.Main;
 import tn.esprit.devmasters.models.Category;
 import tn.esprit.devmasters.models.Product;
@@ -31,6 +35,18 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 
 import com.itextpdf.layout.Document;
 
+
+
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+
+import java.io.IOException;
+import java.nio.file.Paths;
+//-----------------------------backend
 public class ProductController {
     ProductService productService = new ProductService();
     CategoryService categoryService = new CategoryService();
@@ -177,6 +193,24 @@ public class ProductController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+//---------notif start
+        Notifications notification = Notifications.create()
+                .title("Product")
+                .text("Product Updated successfully ")
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .graphic(null) // No graphic
+                .darkStyle() // Use dark style for better visibility
+                .hideCloseButton(); // Hide close button
+
+// Apply the CSS styling directly
+        //notification.showInformation(); // Show the notification as information style
+
+// Apply the CSS styling directly
+        notification.show();
+//---------notif end
+
+
     }
 
     Boolean checkProduct() {
@@ -263,5 +297,67 @@ public class ProductController {
     void QRCODE(ActionEvent event) {
 
     }
+
+
+
+
+
+    @FXML
+    void qccode(ActionEvent event) {
+        try {
+            String data = "http://127.0.0.1:8000/signup";
+            String path = "C:\\Users\\ROUAA\\Desktop\\DevMasters-javafx\\QR2.jpg";
+            BitMatrix matrix = new MultiFormatWriter().encode(data, BarcodeFormat.QR_CODE, 500, 500);
+            MatrixToImageWriter.writeToPath(matrix, "jpg", Paths.get(path));
+            System.out.println("QR Code généré avec succès.");
+
+            // Afficher une alerte de succès
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("QR Code généré");
+            successAlert.setHeaderText(null);
+            successAlert.setContentText("Le QR Code a été généré avec succès !");
+            successAlert.showAndWait();
+        } catch (IOException | WriterException e) {
+            System.out.println("Une erreur est survenue lors de la génération du code QR : " + e.getMessage());
+
+            // Afficher une alerte d'erreur
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Erreur");
+            errorAlert.setHeaderText(null);
+            errorAlert.setContentText("Une erreur est survenue lors de la génération du QR Code : " + e.getMessage());
+            errorAlert.showAndWait();
+        }
+    }
+
+
+    @FXML
+    void showStatsPage(ActionEvent event) {
+        try {
+            // Load the FXML file for the statistics page
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/devmasters/views/product_stat.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller associated with the loaded FXML
+            productStatController statController = loader.getController();
+
+            // Refresh the pie chart in the statistics page
+            statController.refreshPieChart();
+
+            // Create a new stage for the statistics page
+            Stage statsStage = new Stage();
+            statsStage.setTitle("Product Statistics");
+            statsStage.initModality(Modality.APPLICATION_MODAL);
+            statsStage.setScene(new Scene(root));
+
+            // Show the statistics page
+            statsStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
 }

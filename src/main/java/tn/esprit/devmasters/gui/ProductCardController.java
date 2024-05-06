@@ -2,6 +2,7 @@ package tn.esprit.devmasters.gui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import tn.esprit.devmasters.Main;
 import tn.esprit.devmasters.models.Product;
 import tn.esprit.devmasters.services.CategoryService;
@@ -56,6 +59,9 @@ public class ProductCardController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+
+
     }
 
     public void initialize() throws SQLException {

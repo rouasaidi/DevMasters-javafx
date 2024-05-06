@@ -6,8 +6,12 @@ module tn.esprit.devmasters {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
-    requires kernel;
+
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
+    requires java.mail;
     requires layout;
+    requires kernel;
 
     opens tn.esprit.devmasters to javafx.fxml;
 

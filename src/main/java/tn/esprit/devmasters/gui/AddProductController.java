@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.esprit.devmasters.Main;
 import tn.esprit.devmasters.models.Category;
+import tn.esprit.devmasters.models.EmailSenderProduct;
 import tn.esprit.devmasters.models.Product;
 import tn.esprit.devmasters.services.CategoryService;
 import tn.esprit.devmasters.services.ProductService;
@@ -116,6 +117,11 @@ public class AddProductController {
                 int category = Integer.parseInt(String.valueOf(select_category.getValue()));
 
                 Product product = new Product(name, description, (Integer.parseInt(qte)), Float.parseFloat(price), Integer.parseInt(total), image, 1, category);
+
+                String htmlContent = "<html>\n<head>\n<style>\nbody {\nfont-family: Arial, sans-serif;\nline-height: 1.6;\nbackground-color: #f4f4f4;\npadding: 20px;\nmargin: 0;\n}\n.container {\nmax-width: 600px;\nmargin: 0 auto;\nbackground-color: #fff;\npadding: 20px;\nborder-radius: 8px;\nbox-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n}\nh2 {\ncolor: #333;\nfont-size: 24px;\nmargin-bottom: 20px;\n}\np {\nmargin-bottom: 15px;\nfont-size: 16px;\n}\nul {\nlist-style: none;\npadding: 0;\nmargin-bottom: 20px;\n}\nli {\nmargin-bottom: 10px;\nfont-size: 16px;\n}\nstrong {\nfont-weight: bold;\n}\n.thank-you {\nfont-size: 16px;\nmargin-top: 20px;\n}\n</style>\n</head>\n<body>\n<div class='container'>\n<h2>Dear " + /*user.getFirstName() */  "name"+ " " + "lastname" /*user.getLastName() */+ ",</h2>\n<p>We are delighted to confirm your Product . Below are the details:</p>\n<ul>\n<li><strong>name:</strong> " + name + "</li>\n<li><strong>description:</strong> " + description +    "</li>\n<li><strong>Price:</strong> " + price + "</li>\n<li><strong>qte:</strong> " + qte + "</li>\n<li><strong> total:</strong> " + total +    " Team</p>\n</div>\n</body>\n</html>";
+                // Save the reservation to the database
+
+                EmailSenderProduct.AjoutCommentaireEmail("roua.saidi@ieee.org",htmlContent);
                 productService.add(product);
                 try {
                     goToProduct();

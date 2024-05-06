@@ -89,9 +89,13 @@
                      <children>
                         <Button mnemonicParsing="false" onAction="#onDelete" style="-fx-background-color: #d74848;" styleClass="action-button" text="Supprimer" />
                         <Button mnemonicParsing="false" onAction="#onEdit" style="-fx-background-color: #c5bb2c;" styleClass="action-button" text="Modifier" />
-               
+
+
+                        <Button fx:id="showStatsButton" alignment="BASELINE_LEFT" layoutX="686.0" layoutY="420.0" mnemonicParsing="false" onAction="#showStatsPage" prefHeight="40.0" prefWidth="120.0" text="Show Statistics" />
+
+
                         <Button fx:id="generatePdfButton" mnemonicParsing="false" onAction="#handleGeneratePdfButton" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #00A36C;" styleClass="action-button" text="PDF" />
-                        <Button fx:id="Qrcode" mnemonicParsing="false" onAction="#QRCODE" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #00A36C;" styleClass="action-button" text="QRcode" />
+                        <Button fx:id="qccode" mnemonicParsing="false" onAction="#qccode" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #00A36C;" styleClass="action-button" text="QRcode" />
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0" />
