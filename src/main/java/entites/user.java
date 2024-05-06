@@ -22,7 +22,7 @@ public class user { private int id;
         this.image = image;
         this.email = email;
         this.roles = roles;
-        this.is_banned = true;
+        this.is_banned = is_banned;
         this.is_verified = false;
     }
     public user(int phone, int cin, String name, String password, String image, String email, String roles) {
@@ -37,7 +37,7 @@ public class user { private int id;
         this.is_verified = false;
         //this.is_banned = is_banned;
        // this.is_verified = is_verified;
-        this.is_banned = true;
+        this.is_banned = false;
     }
 
     public user(String name, String email, int cin, int phone, String roles, String image,String password) {

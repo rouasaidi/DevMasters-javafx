@@ -1,22 +1,34 @@
 package controls;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import services.UserSession;
 import services.usercrud;
 import utlis.MyBD;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+
+import java.io.IOException;
+import java.nio.file.Paths;
 
 public class Login {
 
@@ -24,7 +36,8 @@ public class Login {
     private Button login;
     @FXML
     private Button inscrit;
-
+    @FXML
+    private Button qccode;
 
     @FXML
     private Button forgetpaswword;
@@ -33,22 +46,32 @@ public class Login {
     private TextField usereamiltextfiled;
 
 
-
     @FXML
-    private TextField userpasswordtextfiled;
+    private PasswordField userpasswordtextfiled;
+/*
+    @FXML
+    private TextField userpasswordtextfiled;*/
+    @FXML
+    private CheckBox showpassword;
 
 
 
     private final services.usercrud usercrud=new usercrud();
 
+    private String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
     @FXML
     void login(ActionEvent event) throws IOException {
+
         String email = usereamiltextfiled.getText();
         String password = userpasswordtextfiled.getText();
+        String hashedPassword = hashPassword(password);
 
 
         // Validation des informations de connexion
         if (usercrud.isValidLogin(email, password)) {
+
 
 
             String name = ""; // Récupérer le nom d'utilisateur depuis la base de données
@@ -56,10 +79,12 @@ public class Login {
             String  phone ="" ; // Récupérer le nom d'utilisateur depuis la base de données
             String roles = "";
             String image = ""; // Récupérer le nom d'utilisateur depuis la base de données
+
             //String page="";
             try (PreparedStatement statement = MyBD.getInstance().getConn().prepareStatement("SELECT * FROM user WHERE email = ?")) {
 
                 statement.setString(1, email); // email est le champ que vous avez récupéré depuis l'interface de connexion
+
 
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
@@ -70,6 +95,17 @@ public class Login {
                         roles=resultSet.getString("roles");
                         image=resultSet.getString("image");
                        // page= resultSet.getString("page");
+                         boolean isBanned = resultSet.getBoolean("is_banned");
+                        if (isBanned) {
+                            // Afficher une alerte indiquant que l'utilisateur est banni
+                            Alert bannedAlert = new Alert(Alert.AlertType.WARNING);
+                            bannedAlert.setTitle("Banned User");
+                            bannedAlert.setHeaderText(null);
+                            bannedAlert.setContentText("You are banned! Please contact support for further assistance.");
+                            bannedAlert.showAndWait();
+                            return; // Arrêter l'exécution de la méthode car l'utilisateur est banni
+                        }
+
 
 
 
@@ -171,7 +207,53 @@ public class Login {
         }
 
     }
+    @FXML
+    void qccode(ActionEvent event) {
+        try {
+            String data = "http://127.0.0.1:8000/signup";
+            String path = "C:\\Users\\jmili\\IdeaProjects\\DevMaster\\QR2.jpg";
+            BitMatrix matrix = new MultiFormatWriter().encode(data, BarcodeFormat.QR_CODE, 500, 500);
+            MatrixToImageWriter.writeToPath(matrix, "jpg", Paths.get(path));
+            System.out.println("QR Code généré avec succès.");
+
+            // Afficher une alerte de succès
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("QR Code généré");
+            successAlert.setHeaderText(null);
+            successAlert.setContentText("Le QR Code a été généré avec succès !");
+            successAlert.showAndWait();
+        } catch (IOException | WriterException e) {
+            System.out.println("Une erreur est survenue lors de la génération du code QR : " + e.getMessage());
+
+            // Afficher une alerte d'erreur
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Erreur");
+            errorAlert.setHeaderText(null);
+            errorAlert.setContentText("Une erreur est survenue lors de la génération du QR Code : " + e.getMessage());
+            errorAlert.showAndWait();
+        }
+    }
 
 
+    @FXML
+    void showpassword(ActionEvent event) {
+        if (showpassword.isSelected()) {
+            userpasswordtextfiled.setText(userpasswordtextfiled.getText());
+        } else {
+            userpasswordtextfiled.setText("");
+        }
+    }
+    @FXML
+    void userpasswordtextfiled(ActionEvent event) {
+
+    }
+
+    public boolean verifierMotDePasse(String email, String motDePasseEntree) {
+        // Récupérer le mot de passe haché correspondant à l'email depuis la base de données
+        String motDePasseHache = usercrud.getHashedPasswordByEmail(email);
+
+        // Vérifier si le mot de passe fourni correspond au mot de passe haché récupéré
+        return motDePasseHache != null && BCrypt.checkpw(motDePasseEntree, motDePasseHache);
+    }
 
 }

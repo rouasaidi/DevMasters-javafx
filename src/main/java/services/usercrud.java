@@ -6,6 +6,7 @@ import utlis.MyBD;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.mindrot.jbcrypt.BCrypt;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -15,7 +16,12 @@ public  class usercrud  implements userservice<user> {
         connection=MyBD.getInstance().getConn();
 
     }
-
+    private String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+    private String hashPassword2(String confirmpassword) {
+        return BCrypt.hashpw(confirmpassword, BCrypt.gensalt());
+    }
 
 
    /* public usercrud(int i, int i1, String text, String text1, String text2, String text3, String text4) {
@@ -28,6 +34,10 @@ public  class usercrud  implements userservice<user> {
         boolean var8 = false;
 
         try {
+            String hashedPassword = hashPassword(user.getPassword());
+            user.setPassword(hashedPassword);
+
+
             var8 = true;
             String insertData = "INSERT INTO `user`(`email`, `name`, `phone`, `cin`, `image`, `is_verified`, `is_banned`, `roles`, `password`)VALUES(?,?,?,?,?,?,?,?,?)";
             ste = this.connection.prepareStatement(insertData);
@@ -175,59 +185,30 @@ public  class usercrud  implements userservice<user> {
         ArrayList<String> userList = new ArrayList<>();
         userList.add(email);
         userList.add(password);
-        String query = "SELECT * FROM user WHERE email = ? AND password = ?";
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, email);
-            statement.setString(2, password);
+             user user = new user();
+      //  String query = "SELECT * FROM user WHERE email = ? AND password = ?";
+      //  String query = "SELECT * FROM user WHERE email = ? ";
+        String query = "SELECT * FROM user WHERE email = '" + email + "'";
+      //        PreparedStatement statement = connection.prepareStatement(query);
+           // Statement ste = this.connection.createStatement();
+        try ( Statement ste = this.connection.createStatement()) {
+            ResultSet resultSet = ste.executeQuery(query);
+//            statement.setString(1, email);
+//            statement.setString(2, password);
 
-            try (ResultSet resultSet = statement.executeQuery()) {
-                return resultSet.next(); // Si une ligne correspond, les informations de connexion sont valides
-            }
+           // try (ResultSet resultSet = statement.executeQuery()) {
+               // return resultSet.next(); // Si une ligne correspond, les informations de connexion sont valides
+                while(resultSet.next()){
+                 return BCrypt.checkpw(password,  resultSet.getString("password"))  ;
+                }
+          //  }
         } catch (SQLException e) {
-            e.printStackTrace();
+
             return false;
         }
+        return false;
     }
-    /*public boolean existeEmail(String email) throws SQLException {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        boolean existe = false;
 
-        try {
-            // Établir la connexion à la base de données (à remplacer avec vos propres informations de connexion)
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/votre_base_de_donnees", "votre_utilisateur", "votre_mot_de_passe");
-
-            // Préparer la requête SQL
-            String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, email);
-
-            // Exécuter la requête SQL
-            resultSet = statement.executeQuery();
-
-            // Récupérer le résultat de la requête
-            if (resultSet.next()) {
-                int count = resultSet.getInt(1);
-                if (count > 0) {
-                    existe = true; // L'adresse e-mail existe déjà dans la base de données
-                }
-            }
-        } finally {
-            // Fermer les ressources
-            if (resultSet != null) {
-                resultSet.close();
-            }
-            if (statement != null) {
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        }
-
-        return existe;
-    }*/
     public boolean existeEmail(String email) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -257,14 +238,18 @@ public  class usercrud  implements userservice<user> {
     }
 
     public void updatefront(user user) {
-        try (PreparedStatement statement = MyBD.getInstance().getConn().prepareStatement("UPDATE user SET name=?, phone=?, cin=?, image=?, roles=? ,password=? WHERE email=?")) {
+        String hashedPassword = hashPassword(user.getPassword());
+        user.setPassword(hashedPassword);
+
+        try (
+                PreparedStatement statement = MyBD.getInstance().getConn().prepareStatement("UPDATE user SET name=?, phone=?, cin=?, image=?, roles=? ,password=? WHERE email=?")) {
             statement.setString(1, user.getName());
             statement.setInt(2, user.getPhone());
             statement.setInt(3, user.getCin());
             statement.setString(4, user.getImage());
             statement.setString(5, user.getRoles());
 
-            statement.setString(6, user.getPassword());
+            statement.setString(6, hashedPassword);
             statement.setString(7, user.getEmail());
 
             int rowsUpdated = statement.executeUpdate();
@@ -295,4 +280,67 @@ public  class usercrud  implements userservice<user> {
         }
 
     }
+    public void updateBannedStatus(int userId, boolean isBanned) throws SQLException {
+        String req = "UPDATE user SET is_banned=? WHERE id=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(req);
+        preparedStatement.setBoolean(1, isBanned);
+        preparedStatement.setInt(2, userId);
+        preparedStatement.executeUpdate();
+        System.out.println("User banned status updated");
+    }
+    public user getUserByEmail(String email) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = MyBD.getInstance().getConn();
+            String query = "SELECT * FROM user WHERE email = ?";
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, email);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return new user(rs.getInt("id"), rs.getInt("phone"), rs.getInt("cin"), rs.getString("name"),
+                        rs.getString("password"), rs.getString("reset_token"), rs.getString("image"),
+                        rs.getString("email"), rs.getString("roles"), rs.getBoolean("is_banned"),
+                        rs.getBoolean("is_verified"));
+            }
+        }/*finally {
+            // Fermeture des ressources
+            if (rs != null) {
+                rs.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+    }
+*/ finally {
+
+        }
+        return null; // Retourne null si aucun utilisateur n'est trouvé avec cet e-mail
+    }
+    public String getHashedPasswordByEmail(String email) {
+        String hashedPassword = null;
+        String query = "SELECT password FROM user WHERE email = ?";
+
+        try (PreparedStatement statement = MyBD.getInstance().getConn().prepareStatement(query)) {
+            statement.setString(1, email);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    hashedPassword = resultSet.getString("password");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return hashedPassword;
+    }
+
+
 }

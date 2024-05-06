@@ -160,5 +160,13 @@ public class codeverification {
         return email.matches("[a-zA-Z0-9._%+-]+@(?:gmail\\.com|esprit\\.tn)");
     }
 
+    @FXML
+    void useremail(ActionEvent event) {
+
+    }
+    @FXML
+    void code(ActionEvent event) {
+
+    }
 
 }
