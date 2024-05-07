@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1417.0" style="-fx-background-color: #632DE9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.controllers.AjouterCommandeController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="676.0" prefWidth="773.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30 30 30 30;">
+         <children>
+
+            <Label layoutX="237.0" layoutY="44.0" prefHeight="51.0" prefWidth="327.0" style="-fx-text-fill: #5955b3; -fx-font-weight: bold; -fx-font-size: 35;" text="Ajouter Commande" />
+            <Button layoutX="346.0" layoutY="550.0" mnemonicParsing="false" onAction="#ajouterCommandeAction" prefHeight="46.0" prefWidth="95.0" styleClass="label2" stylesheets="@service2.css" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="469.0" layoutY="550.0" mnemonicParsing="false" onAction="#navigatetoAfficherCommandeAction" prefHeight="46.0" prefWidth="95.0" styleClass="label2" stylesheets="@service2.css" text="Afficher" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="76.0" layoutY="125.0" text="User_id" textFill="#000000a9">
+
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="55.0" layoutY="178.0" text="total_price" textFill="#000000a9">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="238.0" prefHeight="46.0" prefWidth="171.0" text="total_quant" textFill="#000000a9">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="CBuser_id" layoutX="223.0" layoutY="125.0" prefHeight="46.0" prefWidth="241.0" promptText="choose User_id" styleClass="text-field" stylesheets="@service.css" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="1027.0" layoutY="60.0" prefHeight="51.0" prefWidth="206.0" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 35;" text="Joysprout" />
+      <Label layoutX="239.0" layoutY="62.0" textFill="#000000a9">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TF_date_validation" layoutX="232.0" layoutY="305.0" prefHeight="46.0" prefWidth="250.0" promptText="date_validation" styleClass="text-field" stylesheets="@service2.css">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TFtotal_quant" layoutX="232.0" layoutY="250.0" prefHeight="46.0" prefWidth="250.0" promptText="total_quant" styleClass="text-field" stylesheets="@service2.css">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TFtotal_price" layoutX="232.0" layoutY="193.0" prefHeight="46.0" prefWidth="250.0" promptText="total_price" styleClass="text-field" stylesheets="@service2.css">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="12.0" layoutY="305.0" prefHeight="46.0" prefWidth="219.0" text="date_validation" textFill="#000000a9">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

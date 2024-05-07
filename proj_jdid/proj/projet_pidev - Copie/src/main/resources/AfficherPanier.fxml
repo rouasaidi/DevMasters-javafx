@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="516.0" prefWidth="925.0" styleClass="text-field" stylesheets="@service.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.controllers.AfficherPanierController">
+    <children>
+        <Label layoutX="344.0" layoutY="14.0" prefHeight="59.0" prefWidth="229.0" text="Panier du User ">
+            <font>
+                <Font size="31.0" />
+            </font>
+        </Label>
+        <ListView fx:id="listView" layoutX="240.0" layoutY="135.0" prefHeight="338.0" prefWidth="643.0" styleClass="text-field" />
+        <Button layoutX="452.0" layoutY="473.0" mnemonicParsing="false" onAction="#modifierPanier" prefHeight="46.0" prefWidth="95.0" styleClass="label2" stylesheets="@service2.css" text="Modifier" textFill="WHITE">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button layoutX="562.0" layoutY="473.0" mnemonicParsing="false" onAction="#SupprimerPanier" prefHeight="46.0" prefWidth="126.0" styleClass="label2" stylesheets="@service2.css" text="Supprimer" textFill="WHITE">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+
+        <AnchorPane layoutX="-12.0" layoutY="-2.0" prefHeight="537.0" prefWidth="229.0" style="-fx-background-color: #5d20d3; -fx-background-radius: 00;">
+            <children>
+
+
+                <Label layoutX="58.0" layoutY="58.0" prefHeight="36.0" prefWidth="134.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 25;" text="Joysprout" />
+
+
+                <Button layoutX="27.0" layoutY="448.0" mnemonicParsing="false" onAction="#NavigateToAcc" prefHeight="32.0" prefWidth="178.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #000000; -fx-font-weight: bold; -fx-background-radius: 10;" text="ACCUEIL" />
+              <TextField fx:id="tf_user_id" editable="false" layoutX="2.0" layoutY="510.0" prefHeight="27.0" prefWidth="0.0" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="257.0" layoutY="103.0" prefHeight="32.0" prefWidth="634.0" text="Total Quant            total_price                   Status                  Product name    " />
+      <Button layoutX="723.0" layoutY="89.0" mnemonicParsing="false" onAction="#Confirmer" prefHeight="46.0" prefWidth="95.0" styleClass="label2" stylesheets="@service2.css" text="Confirmer" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="297.0" layoutY="473.0" mnemonicParsing="false" onAction="#Commandes" prefHeight="46.0" prefWidth="151.0" styleClass="label2" stylesheets="@service2.css" text="Mes Commandes" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
