@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,13 +13,13 @@
 <AnchorPane prefHeight="704.0" prefWidth="1054.0" stylesheets="login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.Signin">
 
    <children>
-      <TextField fx:id="usereamiltextfiled" layoutX="141.0" layoutY="156.0" prefHeight="40.0" prefWidth="305.0" promptText="usereamil" />
+      <TextField fx:id="usereamiltextfiled" layoutX="135.0" layoutY="156.0" prefHeight="40.0" prefWidth="305.0" promptText="usereamil" />
       <TextField fx:id="usernametextfiled" layoutX="137.0" layoutY="212.0" prefHeight="40.0" prefWidth="305.0" promptText="username" />
-      <TextField fx:id="userphonetextfiled" layoutX="141.0" layoutY="277.0" prefHeight="40.0" prefWidth="305.0" promptText="userphone" />
-      <TextField fx:id="usercintextfiled" layoutX="141.0" layoutY="343.0" prefHeight="40.0" prefWidth="305.0" promptText="usercin" />
-      <TextField fx:id="userimagetextfiled" layoutX="137.0" layoutY="399.0" prefHeight="40.0" prefWidth="311.0" promptText="userimage" />
-      <TextField fx:id="userrolesextfiled" layoutX="137.0" layoutY="458.0" prefHeight="40.0" prefWidth="311.0" promptText="userroles" />
-      <TextField fx:id="userpasswordtextfiled" layoutX="137.0" layoutY="513.0" prefHeight="40.0" prefWidth="311.0" promptText="password" />
+      <TextField fx:id="userphonetextfiled" layoutX="135.0" layoutY="277.0" prefHeight="40.0" prefWidth="305.0" promptText="userphone" />
+      <TextField fx:id="usercintextfiled" layoutX="135.0" layoutY="343.0" prefHeight="40.0" prefWidth="305.0" promptText="usercin" />
+      <TextField fx:id="userimagetextfiled" layoutX="137.0" layoutY="399.0" prefHeight="40.0" prefWidth="305.0" promptText="userimage" />
+      <TextField fx:id="userrolesextfiled" layoutX="137.0" layoutY="458.0" prefHeight="40.0" prefWidth="305.0" promptText="userroles" />
+      <PasswordField fx:id="userpasswordtextfiled" layoutX="137.0" layoutY="513.0" prefHeight="40.0" prefWidth="305.0" promptText="password" />
       <Label layoutX="23.0" layoutY="163.0" prefHeight="23.0" prefWidth="83.0" text="EMAIL">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -46,7 +48,7 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Button fx:id="singinid" layoutX="137.0" layoutY="584.0" mnemonicParsing="false" onAction="#singuser" prefHeight="51.0" prefWidth="364.0" text="SIGN UP">
+      <Button fx:id="singinid" layoutX="137.0" layoutY="584.0" mnemonicParsing="false" onAction="#singuser" prefHeight="51.0" prefWidth="373.0" text="SIGN UP">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
@@ -59,10 +61,11 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="383.0" fitWidth="410.0" layoutX="613.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="452.0" fitWidth="455.0" layoutX="606.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@contract.png" />
          </image>
       </ImageView>
+      <CheckBox fx:id="showpassword" layoutX="468.0" layoutY="525.0" mnemonicParsing="false" onAction="#showpassword" text="SHOW PASSWORD" />
    </children>
 </AnchorPane>

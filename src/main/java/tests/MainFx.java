@@ -35,7 +35,7 @@ public class MainFx extends Application {
             root = loader.load();
             Scene scene =new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("ajouter");
+            primaryStage.setTitle("hello");
             primaryStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -6,9 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import services.usercrud;
 
@@ -35,13 +33,15 @@ public class Signin {
     private TextField usernametextfiled;
 
     @FXML
-    private TextField userpasswordtextfiled;
+    private PasswordField userpasswordtextfiled;
 
     @FXML
     private TextField userphonetextfiled;
 
     @FXML
     private TextField userrolesextfiled;
+    @FXML
+    private CheckBox showpassword;
     private final services.usercrud usercrud=new usercrud();
 
     @FXML
@@ -158,6 +158,14 @@ public class Signin {
             throw new RuntimeException(e);
         }
 
+    }
+    @FXML
+    void showpassword(ActionEvent event) {
+        if (showpassword.isSelected()) {
+            userpasswordtextfiled.setText(userpasswordtextfiled.getText());
+        } else {
+            userpasswordtextfiled.setText("");
+        }
     }
 
 }

@@ -1,6 +1,13 @@
-.root {
-    -fx-background-color:#7F00FF;
+#excel, #modifier {
+    -fx-background-color: #99CCCC; /* Couleur bleu ciel */
 }
-.table-view .table-cell {
-    -fx-text-fill: red;
+
+#supprimer, #ban {
+    -fx-background-color: #FF7F7F; /* Couleur rouge */
+}
+.root {
+    -fx-background-color: DARKCYAN;
+}
+.anchor-pane {
+    -fx-background-color: #CCCCCC; /* Couleur gris */
 }

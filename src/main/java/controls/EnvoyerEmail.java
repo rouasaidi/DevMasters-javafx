@@ -29,6 +29,8 @@ public class EnvoyerEmail {
                     "Merci de votre inscription. Voici vos informations :\n" +
                     "Nom : " + userName + "\n" +
                     "Numéro de téléphone : " + phoneNumber + "\n\n" +
+
+
                     "Cordialement,\n" +
                     "Votre application";
 

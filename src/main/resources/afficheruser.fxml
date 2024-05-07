@@ -4,13 +4,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="tableauafficher" prefHeight="400.0" prefWidth="600.0" stylesheets="login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.afficheruser">
+<AnchorPane fx:id="tableauafficher" prefHeight="712.0" prefWidth="1260.0" stylesheets="back.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.afficheruser">
 
    <children>
-      <TableView fx:id="tableview" layoutX="66.0" layoutY="73.0" prefHeight="537.0" prefWidth="996.0">
+      <TableView fx:id="tableview" layoutX="115.0" layoutY="73.0" prefHeight="537.0" prefWidth="953.0">
         <columns>
           <TableColumn fx:id="email" prefWidth="87.0" text="email" />
             <TableColumn fx:id="name" prefWidth="75.0" text="name" />
@@ -24,11 +26,11 @@
             <TableColumn fx:id="password" prefWidth="205.0" text="password" />
         </columns>
       </TableView>
-      <Button fx:id="modifier" layoutX="312.0" layoutY="637.0" mnemonicParsing="false" onAction="#naviguer" prefHeight="25.0" prefWidth="252.0" text="modifier">
+      <Button fx:id="modifier" layoutX="1085.0" layoutY="183.0" mnemonicParsing="false" onAction="#naviguer" prefHeight="26.0" prefWidth="167.0" text="modifier">
          <font>
             <Font name="Georgia Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="supprimer" layoutX="609.0" layoutY="637.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="252.0" text="supprimer">
+      <Button fx:id="supprimer" layoutX="1087.0" layoutY="124.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="26.0" prefWidth="158.0" text="supprimer">
          <font>
             <Font name="Georgia Bold" size="14.0" />
          </font></Button>
@@ -37,8 +39,19 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="ban" layoutX="124.0" layoutY="638.0" mnemonicParsing="false" onAction="#ban" text="ban" />
-      <Button fx:id="excel" layoutX="912.0" layoutY="626.0" mnemonicParsing="false" onAction="#excel" text="excel" />
-      <TextField fx:id="rehcercher" layoutX="517.0" layoutY="29.0" onAction="#rehcercher" promptText="rehchercher" />
+      <Button fx:id="ban" layoutX="1090.0" layoutY="244.0" mnemonicParsing="false" onAction="#ban" prefHeight="25.0" prefWidth="158.0" text="BAN">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="excel" layoutX="1092.0" layoutY="301.0" mnemonicParsing="false" onAction="#excel" prefHeight="25.0" prefWidth="158.0" text="EXCEL">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font></Button>
+      <TextField fx:id="rehcercher" layoutX="534.0" layoutY="32.0" onAction="#rehcercher" prefHeight="25.0" prefWidth="439.0" promptText="rehchercher" />
+      <ImageView fitHeight="30.0" fitWidth="88.0" layoutX="993.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loupe.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

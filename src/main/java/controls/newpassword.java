@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import utlis.MyBD;
@@ -19,12 +20,15 @@ import org.mindrot.jbcrypt.BCrypt;
 public class    newpassword {
 
     @FXML
-    private TextField newpassword;
+    private PasswordField  newpassword;
     @FXML
     private TextField useremail;
+    @FXML
+    private Button back;
+
 
     @FXML
-    private TextField verifypassword;
+    private PasswordField verifypassword;
 
     @FXML
     private Button reset;
@@ -166,7 +170,18 @@ public class    newpassword {
         // Expression régulière pour vérifier si l'adresse email se termine par "@gmail.com" ou "@esprit.tn"
         return email.matches("[a-zA-Z0-9._%+-]+@(?:gmail\\.com|esprit\\.tn)");
     }
+    @FXML
+    void back(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+            Stage stage = (Stage) back.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
 
 }
 

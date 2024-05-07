@@ -35,6 +35,8 @@ public class codeverification {
 
     @FXML
     private Button send;
+    @FXML
+    private Button back;
 
     @FXML
     private TextField useremail;
@@ -168,5 +170,19 @@ public class codeverification {
     void code(ActionEvent event) {
 
     }
+    @FXML
+    void back(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+            Stage stage = (Stage) back.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 
 }

@@ -1,19 +1,17 @@
 package controls;
 
 import entites.user;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import services.usercrud;
 import utlis.MyBD;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,13 +41,14 @@ public class Userinfo {
     private TextField usernametextfiled;
 
     @FXML
-    private TextField userpasswordtextfiled;
+    private PasswordField userpasswordtextfiled;
 
     @FXML
     private TextField userphonetextfiled;
 
     @FXML
     private TextField userrolesextfiled;
+
     private user user1 =new user();
 
     public void initData(String name, String email,String password,String cin,String phone,String roles,String image) {
@@ -204,4 +203,5 @@ public class Userinfo {
             throw new RuntimeException(e);
         }
     }
+
 }
