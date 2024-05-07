@@ -172,6 +172,22 @@ public class ProductController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+
+        Notifications notification = Notifications.create()
+                .title("Product")
+                .text("Product Added successfully ")
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .graphic(null) // No graphic
+                .darkStyle() // Use dark style for better visibility
+                .hideCloseButton(); // Hide close button
+
+// Apply the CSS styling directly
+        //notification.showInformation(); // Show the notification as information style
+
+// Apply the CSS styling directly
+        notification.show();
     }
 
     void updateProduct() {

@@ -3,11 +3,14 @@ package tn.esprit.devmasters.gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import tn.esprit.devmasters.Main;
 import tn.esprit.devmasters.models.Category;
 import tn.esprit.devmasters.services.CategoryService;
@@ -61,15 +64,29 @@ public class CategoryController {
     }
 
     @FXML
+
     void onDelete(ActionEvent event) {
         selectedCategory = categoriesTable.getSelectionModel().getSelectedItem();
         try {
             categoryService.delete(selectedCategory);
             loadCategories();
+
+            // Affichage de la notification
+            Notifications notification = Notifications.create()
+                    .title("Category")
+                    .text("Category Deleted successfully ")
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .graphic(null) // No graphic
+                    .darkStyle() // Use dark style for better visibility
+                    .hideCloseButton(); // Hide close button
+
+            notification.show();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+
 
     @FXML
     void onEdit() {
@@ -115,6 +132,26 @@ public class CategoryController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+        //---------notif start
+        Notifications notification = Notifications.create()
+                .title("Category")
+                .text("Category  Added  successfully ")
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .graphic(null) // No graphic
+                .darkStyle() // Use dark style for better visibility
+                .hideCloseButton(); // Hide close button
+
+// Apply the CSS styling directly
+        //notification.showInformation(); // Show the notification as information style
+
+// Apply the CSS styling directly
+        notification.show();
+//---------notif end
+
+
+
     }
 
     public void updateCategory() {
@@ -125,6 +162,25 @@ public class CategoryController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+        //---------notif start
+        Notifications notification = Notifications.create()
+                .title("Category")
+                .text("Category Updated successfully ")
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .graphic(null) // No graphic
+                .darkStyle() // Use dark style for better visibility
+                .hideCloseButton(); // Hide close button
+
+// Apply the CSS styling directly
+        //notification.showInformation(); // Show the notification as information style
+
+// Apply the CSS styling directly
+        notification.show();
+//---------notif end
+
+
     }
 
     public boolean checkCategory() {

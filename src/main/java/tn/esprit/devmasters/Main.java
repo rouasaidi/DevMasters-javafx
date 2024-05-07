@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         DatabaseConnection.connectDB();
 
-    // FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/Product.fxml"));  // BACK OFFICE
+     //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/Product.fxml"));  // BACK OFFICE
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/ProductFront.fxml"));   // FRONT OFFICE
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         stage.setTitle("Hello!");

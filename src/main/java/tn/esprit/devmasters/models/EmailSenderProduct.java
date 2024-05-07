@@ -35,7 +35,7 @@ public class EmailSenderProduct {
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(username)); // Adresse e-mail de l'expéditeur
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(userEmail)); // Adresse e-mail du destinataire
-                message.setSubject("Flight Reservation Details"); // Objet de l'e-mail
+                message.setSubject("Your Added Product details"); // Objet de l'e-mail
                 message.setContent(htmlContent, "text/html"); // Set the email content as HTML
 
                 // Envoi de l'e-mail
