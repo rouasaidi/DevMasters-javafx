@@ -10,7 +10,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 import services.usercrud;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -45,6 +47,10 @@ public class ajouterusercontrol {
     @FXML
     private TextField userrolesextfiled;
     private final usercrud  usercrud=new usercrud();
+    private String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
 
         @FXML
         void ajouter(ActionEvent event) throws SQLException {

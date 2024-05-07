@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+import org.mindrot.jbcrypt.BCrypt;
 public class    newpassword {
 
     @FXML
@@ -28,7 +28,12 @@ public class    newpassword {
 
     @FXML
     private Button reset;
-
+    private String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+    private String hashPassword2(String verifypassword) {
+        return BCrypt.hashpw(verifypassword, BCrypt.gensalt());
+    }
     @FXML
     void newpassword(ActionEvent event) {
 
@@ -36,9 +41,12 @@ public class    newpassword {
 
     @FXML
     void reset(ActionEvent event) {
+
         String newPassword = newpassword.getText();
         String verifyPassword = verifypassword.getText();
         String userEmail = useremail.getText();
+        String hashedPassword=hashPassword(newPassword);
+        String hasheddPassword2=hashPassword2(verifyPassword);
 
         // Vérifier si les deux champs de mot de passe correspondent
         if (newPassword.equals(verifyPassword)) {
@@ -122,13 +130,14 @@ public class    newpassword {
         // Établir la connexion à la base de données en utilisant MyBD
         Connection connection = MyBD.getInstance().getConn();
         PreparedStatement statement = null;
+        String hashedPassword=hashPassword(newPassword);
 
         try {
 
             // Préparer la requête SQL pour mettre à jour le mot de passe de l'utilisateur avec l'e-mail spécifié
             String sql = "UPDATE user SET password = ? WHERE email = ?";
             statement = connection.prepareStatement(sql);
-            statement.setString(1, newPassword);
+            statement.setString(1, hashedPassword);
             statement.setString(2, recipientEmail);
 
             // Exécuter la requête SQL
