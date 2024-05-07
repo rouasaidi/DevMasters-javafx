@@ -1,0 +1,122 @@
+.image-view {
+    -fx-fill: #ADD8E6; /* Change image color to light blue */
+}
+
+.scroll-pane {
+    -fx-background-color: #02030A;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #ADD8E6; /* Light blue thumb */
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: black;
+}
+
+.shadow {
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.transparent {
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+/* Sidebar buttons */
+.sidebar-button {
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+    -fx-font-family:"Arial";
+    -fx-font-size:14px;
+    -fx-text-fill:#fff;
+    -fx-alignment:CENTER-LEFT;
+}
+
+/* Content area */
+.content-area {
+    -fx-background-color: #02030A;
+}
+
+/* Welcome label */
+.welcome-label {
+    -fx-font-size: 36px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #ADD8E6; /* Light blue text */
+}
+
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-insets: 5px;
+    -fx-padding: 5px;
+}
+
+.list-cell {
+    -fx-padding: 10px;
+    -fx-border-color: transparent transparent #ececec transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.list-cell:filled:selected, .list-cell:filled:selected:hover {
+    -fx-background-color: #e1e1e1;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent transparent #adadad transparent;
+}
+
+.crud-button {
+    -fx-background-color: #5F9EA0; /* Adjusted for consistency */
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.crud-button:hover {
+    -fx-background-color: #3D708F;
+}
+
+.crud-button:pressed {
+    -fx-background-color: #306080;
+}
+
+.text-field {
+    -fx-pref-width: 200;
+    -fx-pref-height: 30;
+    -fx-padding: 4;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5;
+}
+
+.button {
+    -fx-background-color:#304575;
+    -fx-background-radius:8px;
+    -fx-text-fill:#fff;
+    -fx-font-size:14px;
+    -fx-font-family:"Arial";
+    -fx-cursor:hand;
+}
+
+.button:hover {
+    -fx-background-color:#3357a4;
+}

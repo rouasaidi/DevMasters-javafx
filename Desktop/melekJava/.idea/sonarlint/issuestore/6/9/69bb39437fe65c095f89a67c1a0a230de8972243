@@ -1,0 +1,20 @@
+
+j
+java:S1192*"HDefine a constant instead of duplicating this literal "content" 3 times.(Àö±ñùÿÿÿÿ8ÉÓşÄô1
+h
+java:S1192("KDefine a constant instead of duplicating this literal "article_id" 3 times.(¨ÿæ8ÉÓşÄô1
+j
+java:S1192)"HDefine a constant instead of duplicating this literal "user_id" 3 times.(ÿ¢¯ƒşÿÿÿÿ8ÉÓşÄô1
+f
+java:S1192+"IDefine a constant instead of duplicating this literal "date_cmt" 3 times.(š÷ô8ÉÓşÄô1
+G	java:S106"+Replace this use of System.out by a logger.(½ıóõ8Ï½Äô1
+L	java:S106"+Replace this use of System.out by a logger.(ºçé…ûÿÿÿÿ8Ï½Äô1
+L	java:S1060"+Replace this use of System.err by a logger.(ê ûãÿÿÿÿÿ8ØÓşÄô1
+F	java:S106@"+Replace this use of System.out by a logger.(íÃÓ.8’Ï½Äô1
+G	java:S106B"+Replace this use of System.out by a logger.(â€ÔŒ8’Ï½Äô1
+G	java:S106E"+Replace this use of System.out by a logger.(¸ª÷ï8’Ï½Äô1
+G	java:S106P"+Replace this use of System.out by a logger.(¢ˆê8åÿÔÄô1
+L	java:S106R"+Replace this use of System.out by a logger.(ä®”Ëùÿÿÿÿ8èÿÔÄô1
+F	java:S106U"+Replace this use of System.out by a logger.(›€Œ8‹¼ØÄô1
+G	java:S106i"+Replace this use of System.out by a logger.(®’¯»8¼ØÄô1
+G	java:S106}"+Replace this use of System.out by a logger.(ˆ“ò›8¼ØÄô1

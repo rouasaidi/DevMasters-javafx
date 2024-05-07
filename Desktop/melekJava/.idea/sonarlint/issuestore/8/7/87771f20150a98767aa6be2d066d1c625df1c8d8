@@ -1,0 +1,11 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡„º•8ºªÇô1
+G	java:S106/"+Replace this use of System.out by a logger.(ÆÈÂ„8ëªÇô1
+T
+java:S1172k"2Remove this unused method parameter "actionEvent".(ÈãÁ¹şÿÿÿÿ8òªÇô1
+P
+java:S1172"2Remove this unused method parameter "actionEvent".(î¢µï8÷ªÇô1
+[
+java:S1128"9Remove this unused import 'javafx.scene.layout.GridPane'.(ÖÀ¹¯ûÿÿÿÿ8á“ŸÇô1
+O
+java:S1128"-Remove this unused import 'org.w3c.dom.Text'.(¶Äè‹şÿÿÿÿ8á“ŸÇô1

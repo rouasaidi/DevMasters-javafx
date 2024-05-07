@@ -1,0 +1,7 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Å¤‚Íøÿÿÿÿ8Ş§ªÈô1
+h
+java:S1659$"FDeclare "tfContent" and all following declarations on a separate line.(Á¢áûÿÿÿÿ8ö§ªÈô1
+p	java:S100Û"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÏ’Ïÿÿÿÿÿ8¨ªÈô1
+U
+java:S1172Û"2Remove this unused method parameter "actionEvent".(ªÏ’Ïÿÿÿÿÿ8¨ªÈô1

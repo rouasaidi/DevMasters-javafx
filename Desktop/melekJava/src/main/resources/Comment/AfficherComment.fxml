@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="450.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.Comment.AfficherCommentController">
+    <SplitPane dividerPositions="0.3" prefHeight="515.0" prefWidth="811.0">
+        <items>
+            <VBox minWidth="200.0" prefWidth="300.0">
+                <children>
+                    <ListView fx:id="commentsListView" prefHeight="200.0" VBox.vgrow="ALWAYS" />
+                    <Button fx:id="deleteButton" onAction="#deleteComment" text="Delete Comment" />
+                </children>
+            </VBox>
+            <VBox fx:id="detailsPane" minWidth="200.0" prefWidth="700.0">
+                <children>
+                    <Label text="Article ID:" />
+                    <Label fx:id="labelArticleId" style="-fx-font-size: 14;" />
+                    <Label text="User ID:" />
+                    <Label fx:id="labelUserId" style="-fx-font-size: 14;" />
+                    <Label text="Content:" />
+                    <Label fx:id="labelContent" style="-fx-font-size: 14;" wrapText="true" />
+                    <Label text="Comment Date:" />
+                    <Label fx:id="labelDateCmt" style="-fx-font-size: 14;" />
+                </children>
+            </VBox>
+        </items>
+    </SplitPane>
+</AnchorPane>

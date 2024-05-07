@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+
+<AnchorPane prefHeight="791.0" prefWidth="1304.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.Article.AfficherArticleFrontController">
+    <!-- Add VBox for search filters -->
+    <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="141.0" prefHeight="650.0" prefWidth="1304.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="141.0">
+        <content>
+            <TilePane fx:id="tilePane" hgap="10.0" prefColumns="3" prefHeight="710.0" prefWidth="1302.0" vgap="10.0">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <children>
+
+                </children>
+            </TilePane>
+        </content>
+    </ScrollPane>
+   <Button fx:id="btnArticle" layoutX="31.0" layoutY="44.0" onAction="#AjouterArticle" prefHeight="61.0" prefWidth="194.0" styleClass="sidebar-button" text="Ajouter Articles" />
+</AnchorPane>
