@@ -10,7 +10,12 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.leila.Controller.User.ModiferDonnationController"
+<<<<<<< HEAD
             prefHeight="700.0" prefWidth="1200.0">
+=======
+            prefHeight="700.0" prefWidth="1200.0"
+            stylesheets="@../style.css">
+>>>>>>> 5f185cf (Heeeeeeello)
     <children>
         <Label layoutX="102.0" layoutY="83.0" prefHeight="18.0" prefWidth="113.0" text="Name* :" />
         <Label layoutX="102.0" layoutY="207.0" prefHeight="18.0" prefWidth="78.0" text="Descreption* :" />

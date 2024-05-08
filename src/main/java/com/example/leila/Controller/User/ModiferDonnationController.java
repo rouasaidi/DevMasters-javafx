@@ -52,14 +52,24 @@ public class ModiferDonnationController {
     private final DonationService donationService = new DonationService();
     private String imagePath="";
     private Donation donation;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5f185cf (Heeeeeeello)
     @FXML
     void initialize(Donation donation) {
         this.donation=donation;
 
         ObservableList<String> options = FXCollections.observableArrayList(
+<<<<<<< HEAD
                 "Toys",
                 "Schools suplies",
                 "Clothes"
+=======
+                "option 1",
+                "option 2",
+                "option 3"
+>>>>>>> 5f185cf (Heeeeeeello)
         );
         categoryCamcox.setItems(options);
         nameF.setText(donation.getName());

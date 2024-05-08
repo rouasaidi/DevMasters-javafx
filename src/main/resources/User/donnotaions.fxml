@@ -13,7 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.leila.Controller.User.UserDonnotation">
+=======
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.leila.Controller.User.UserDonnotation">
+>>>>>>> 5f185cf (Heeeeeeello)
     <children>
         <ScrollPane fx:id="ScrollePan" layoutX="418.0" layoutY="140.0" prefHeight="570.0" prefWidth="670.0" />
         <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="310.0" style="-fx-background-color:  #DDE6E8;">
@@ -175,8 +179,15 @@
                 <Separator prefWidth="200.0" />
             </children>
         </VBox>
+<<<<<<< HEAD
         <Button layoutX="345.0" layoutY="92.0" mnemonicParsing="false" onAction="#loaAllDonation" text="Acceille" />
         <Button layoutX="417.0" layoutY="92.0" mnemonicParsing="false" onAction="#loaUserDonation" text="Profille" />
         <Button layoutX="638.0" layoutY="92.0" mnemonicParsing="false" onAction="#goAddDonation" prefHeight="26.0" prefWidth="106.0" text="Add Donation" />
+=======
+        <Button layoutX="430.0" layoutY="92.0" mnemonicParsing="false" onAction="#loaAllDonation" text="Acceille" />
+        <Button layoutX="499.0" layoutY="92.0" mnemonicParsing="false" onAction="#loaUserDonation" text="Profille" />
+        <Button layoutX="899.0" layoutY="91.0" mnemonicParsing="false" onAction="#goAddDonation" prefHeight="26.0" prefWidth="106.0" text="Add Donation" />
+      <Button layoutX="573.0" layoutY="92.0" mnemonicParsing="false" onAction="#loaUserFavarieListe" prefHeight="26.0" prefWidth="83.0" text="Favories" />
+>>>>>>> 5f185cf (Heeeeeeello)
     </children>
 </AnchorPane>

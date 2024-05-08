@@ -94,6 +94,17 @@ public class Dones {
                     Donation donation = getTableView().getItems().get(getIndex());
                     try {
                         donationService.supprimer(donation.getId());
+<<<<<<< HEAD
+=======
+
+                        String body = "Cher " + donationService.getusermail(donation.getUser_id()) + ",\n\n" +
+                                "Nous vous rappelons que l'admine a supprimer votre donnation sou le categorie " + donation.getCategory() + ".\n\n" +
+                                "Nom : " + donation.getName() + ".\n\n" +
+                                "Nom : " + donation.getDescription() + ".\n\n" +
+                                "Merci de votre confiance.";
+                        System.out.println(body);
+                        donationService.sendEmail(donationService.getusermail(donation.getUser_id()), "Alerts", body);
+>>>>>>> 5f185cf (Heeeeeeello)
                         tableView.refresh();
                         refreshPosts();
                     } catch (SQLException ex) {
@@ -141,4 +152,19 @@ public class Dones {
         stage.setScene(scene);
         stage.show();
     }
+<<<<<<< HEAD
+=======
+    @FXML
+    void goStat() throws IOException {
+        Scene scenefer = tableView.getScene();
+        Stage stagefer = (Stage) scenefer.getWindow();
+        stagefer.close();
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/Admin/DonnationState.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("");
+        stage.setScene(scene);
+        stage.show();
+    }
+>>>>>>> 5f185cf (Heeeeeeello)
 }

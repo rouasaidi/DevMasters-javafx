@@ -16,12 +16,22 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+<<<<<<< HEAD
+=======
+import javafx.scene.layout.StackPane;
+>>>>>>> 5f185cf (Heeeeeeello)
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+>>>>>>> 5f185cf (Heeeeeeello)
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
@@ -54,6 +64,14 @@ public class UserDonnotation {
         choix = 2;
         loadDonations(choix);
     }
+<<<<<<< HEAD
+=======
+    @FXML
+    void loaUserFavarieListe() {
+        choix = 3;
+        loadDonations(choix);
+    }
+>>>>>>> 5f185cf (Heeeeeeello)
 
     private void loadDonations(int choix) {
         FlowPane donationFlowPane = new FlowPane();
@@ -64,9 +82,18 @@ public class UserDonnotation {
         try {
             if (choix == 1) {
                 donationList = donationService.getAll();
+<<<<<<< HEAD
             } else {
                 donationList = donationService.getByIdUser(user_id);
             }
+=======
+            } else if (choix == 2){
+                donationList = donationService.getByIdUser(user_id);
+            }
+            else{
+                donationList = donationService.getUserFavorieliste(user_id);
+            }
+>>>>>>> 5f185cf (Heeeeeeello)
 
             for (Donation donation : donationList) {
                 VBox cardContainer = createDonationVBox(donation, choix);
@@ -179,7 +206,10 @@ public class UserDonnotation {
                 feedback_don.setDate_feedback(new Date());
                 feedback_don.setDonation_id(donation.getId());
                 feedback_don.setDescription(commentTextArea.getText());
+<<<<<<< HEAD
                 loadDonations(choix);
+=======
+>>>>>>> 5f185cf (Heeeeeeello)
 
                 try {
                     feedbackDonService.ajouter(feedback_don);
@@ -192,6 +222,75 @@ public class UserDonnotation {
             else{CheckComment.setVisible(true);}
         });
 
+<<<<<<< HEAD
+=======
+        ImageView favimag = new ImageView(new Image(getClass().getResourceAsStream("/image/Favorie.jpeg")));
+        favimag.setFitHeight(42.0);
+        favimag.setFitWidth(35.0);
+        if (choix==2){
+            favimag.setLayoutX(401.0);
+            favimag.setLayoutY(10.0);
+        }
+        else {
+            favimag.setLayoutX(519.0);
+            favimag.setLayoutY(10.0);
+
+        }
+        favimag.setPickOnBounds(true);
+        favimag.setPreserveRatio(true);
+
+
+        ImageView notfavimag = new ImageView(new Image(getClass().getResourceAsStream("/image/NotFavorie.png")));
+        notfavimag.setFitHeight(42.0);
+        notfavimag.setFitWidth(35.0);
+        if (choix==2){
+            notfavimag.setLayoutX(401.0);
+            notfavimag.setLayoutY(10.0);
+            }
+        else {
+            notfavimag.setLayoutX(519.0);
+            notfavimag.setLayoutY(10.0);
+        }
+        notfavimag.setPickOnBounds(true);
+        notfavimag.setPreserveRatio(true);
+
+        favimag.setOnMouseClicked(event -> {
+            try {
+                donationService.deletfavorie(donation.getId(),user_id);
+                favimag.setVisible(false);
+                notfavimag.setVisible(true);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        notfavimag.setOnMouseClicked(event -> {
+            try {
+                donationService.Addfavorie(donation.getId(),user_id);
+                favimag.setVisible(true);
+                notfavimag.setVisible(false);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        ImageView qr = new ImageView(new Image(getClass().getResourceAsStream("/image/Qr.png")));
+        qr.setFitHeight(42.0);
+        qr.setFitWidth(35.0);
+        if (choix==2){
+            qr.setLayoutX(342.0);
+            qr.setLayoutY(10.0);
+           }
+        else {
+            qr.setLayoutX(460.0);
+            qr.setLayoutY(10.0);
+        }
+        qr.setPickOnBounds(true);
+        qr.setPreserveRatio(true);
+        qr.setOnMouseClicked(event->{
+            generateQRCode(donation);
+        });
+>>>>>>> 5f185cf (Heeeeeeello)
         ImageView editImageView = new ImageView(new Image(getClass().getResourceAsStream("/image/edit.png")));
         editImageView.setFitHeight(42.0);
         editImageView.setFitWidth(35.0);
@@ -201,9 +300,13 @@ public class UserDonnotation {
         editImageView.setPreserveRatio(true);
 
         editImageView.setOnMouseClicked(event -> {
+<<<<<<< HEAD
 
             modifierDonation(donation);
 
+=======
+            modifierDonation(donation);
+>>>>>>> 5f185cf (Heeeeeeello)
         });
         /////
         ImageView daitailleImageView = new ImageView(new Image(getClass().getResourceAsStream("/image/projects.png")));
@@ -237,7 +340,10 @@ public class UserDonnotation {
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 try {
                     donationService.supprimer(donation.getId());
+<<<<<<< HEAD
                     loadDonations(choix);
+=======
+>>>>>>> 5f185cf (Heeeeeeello)
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -255,6 +361,7 @@ public class UserDonnotation {
             }
         }
 
+<<<<<<< HEAD
 
 
 
@@ -266,6 +373,26 @@ public class UserDonnotation {
                     dateLabel, contentLabel, commentLabel, commentDataLabel, commentTextArea, addBtn, editImageView, deleteImageView,CheckComment,daitailleImageView);
         }
 
+=======
+        try {
+            if(donationService.isFavorie(donation.getId(),user_id)){
+                notfavimag.setVisible(false);
+            }
+            else favimag.setVisible(false);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (choix == 2) {
+            pane.getChildren().addAll( imageView, userLabel,favimag,qr,notfavimag,
+                    dateLabel, contentLabel, commentLabel, commentDataLabel, commentTextArea, addBtn, editImageView, deleteImageView,CheckComment,daitailleImageView);
+        } else {
+            pane.getChildren().addAll( imageView, userLabel,favimag,qr,notfavimag,
+                    dateLabel, contentLabel, commentLabel, commentDataLabel, commentTextArea, addBtn,CheckComment,daitailleImageView);
+        }
+
+
+>>>>>>> 5f185cf (Heeeeeeello)
         cardContainer.getChildren().add(pane);
         return cardContainer;
     }
@@ -343,4 +470,55 @@ public class UserDonnotation {
         stage.setScene(scene);
         stage.show();
     }
+<<<<<<< HEAD
+=======
+    void generateQRCode(Donation donation){
+         String userId = "IsmailChouikhi";
+         String apiKey = "cyEIkNQxPmSmlONcs32Qm2io2pl2aPLi291SlS2YEYU6H6RN";
+         String apiUrl = "https://neutrinoapi.net/qr-code";
+         int width = 256;
+         int height = 256;
+         String fgColor = "#000000";
+         String bgColor = "#ffffff";
+         String content ="Nam :" + donation.getName() + ",\n\n"+
+                        "Category :" + donation.getCategory() + ",\n\n"+
+                        "Description :" + donation.getDescription() + ",\n\n"+
+                        "Quantity :" + donation.getQuantity() + ",\n\n"+
+                        "Date :" + donation.getDate_don() + ",\n\n"+
+                        "Status :" + donation.getStatus() + ",\n\n";
+
+        try {
+            URL url = new URL(apiUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("User-ID", userId);
+            connection.setRequestProperty("API-Key", apiKey);
+            connection.setDoOutput(true);
+
+            String postData = "width=" + width + "&height=" + height + "&fg-color=" + fgColor +
+                    "&bg-color=" + bgColor + "&content=" + content;
+            connection.getOutputStream().write(postData.getBytes("UTF-8"));
+
+            InputStream inputStream = connection.getInputStream();
+
+            if (inputStream != null) {
+                Image image = new Image(inputStream);
+                showQRCodeDialog(image);
+            } else {
+                System.out.println("Failed to download QR Code image. Input stream is null.");
+            }
+
+            inputStream.close();
+            System.out.println("QR Code downloaded successfully");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void showQRCodeDialog(Image image) {
+        Stage stage = new Stage();
+        ImageView imageView = new ImageView(image);
+        stage.setScene(new Scene(new StackPane(imageView)));
+        stage.show();
+    }
+>>>>>>> 5f185cf (Heeeeeeello)
 }

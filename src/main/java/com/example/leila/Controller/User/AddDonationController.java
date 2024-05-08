@@ -56,9 +56,15 @@ public class AddDonationController {
     @FXML
     void initialize() {
         ObservableList<String> options = FXCollections.observableArrayList(
+<<<<<<< HEAD
                 "Toys",
                 "Schools suplies",
                 "Clothes"
+=======
+                "option 1",
+                "option 2",
+                "option 3"
+>>>>>>> 5f185cf (Heeeeeeello)
         );
         categoryCamcox.setItems(options);
         quantity.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, Integer.MAX_VALUE, 1));
